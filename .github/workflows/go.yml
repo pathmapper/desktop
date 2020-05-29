@@ -22,19 +22,19 @@ jobs:
     - name: Check out code into the Go module directory
       uses: actions/checkout@v2
       with:
-        path: src/github.com/maputnik/desktop/
+        path: /home/runner/go/src/github.com/maputnik/desktop/
 
     - name: Get style
-      run:  cd src/github.com/maputnik/desktop && ls -ll && pwd && wget https://maputnik.github.io/osm-liberty/style.json
+      run:  cd /home/runner/go/src/github.com/maputnik/desktop/ && ls -ll && pwd && wget https://maputnik.github.io/osm-liberty/style.json
 
     - name: Build
-      run: cd src/github.com/maputnik/desktop && make
+      run: cd /home/runner/go/src/github.com/maputnik/desktop/ && make
 
     - name: Test help
-      run: ./bin/linux/maputnik --help
+      run: /home/runner/go/src/github.com/maputnik/desktop//bin/linux/maputnik --help
    
     - name: Test version
-      run: ./bin/linux/maputnik --version
+      run: /home/runner/go/src/github.com/maputnik/desktop//bin/linux/maputnik --version
       
     - name: Test watch
-      run: ./bin/linux/maputnik --watch --file style.json & sleep 5; kill $!
+      run: /home/runner/go/src/github.com/maputnik/desktop//bin/linux/maputnik --watch --file style.json & sleep 5; kill $!

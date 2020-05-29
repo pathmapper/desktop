@@ -1,4 +1,4 @@
-name: Go
+name: go
 
 on:
   push:
@@ -30,14 +30,14 @@ jobs:
     - name: Get style
       run:  wget https://maputnik.github.io/osm-liberty/style.json
 
-    - name: Build
+    - name: Make
       run: cd src/github.com/maputnik/desktop/ && make
 
-    - name: Test help
+    - name: Test --help
       run: ./src/github.com/maputnik/desktop/bin/linux/maputnik --help
    
-    - name: Test version
+    - name: Test --version
       run: ./src/github.com/maputnik/desktop/bin/linux/maputnik --version
       
-    - name: Test watch
+    - name: Test --watch
       run: ./src/github.com/maputnik/desktop/bin/linux/maputnik --watch --file style.json & sleep 5; kill $!

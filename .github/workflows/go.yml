@@ -25,7 +25,7 @@ jobs:
         path: ./src/github.com/maputnik/
 
     - name: Get style
-      run:  ls -ll && pwd && wget https://maputnik.github.io/osm-liberty/style.json
+      run:  cd src/github.com/maputnik && ls -ll && pwd && wget https://maputnik.github.io/osm-liberty/style.json
 
     - name: Build
       run: make

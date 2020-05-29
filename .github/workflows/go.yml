@@ -1,0 +1,38 @@
+name: Go
+
+on:
+  push:
+    branches: [ gh-actions ]
+  pull_request:
+    branches: [ gh-actions ]
+
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Set up Go 1.x
+      uses: actions/setup-go@v2
+      with:
+        go-version: ^1.14
+      id: go
+
+    - name: Check out code into the Go module directory
+      uses: actions/checkout@v2
+
+    - name: Get style
+      run: wget https://maputnik.github.io/osm-liberty/style.json
+
+    - name: Build
+      run: make
+
+    - name: Test help
+      run: ./bin/linux/maputnik --help
+   
+    - name: Test version
+      run: ./bin/linux/maputnik --version
+      
+    - name: Test watch
+      run: ./bin/linux/maputnik --watch --file style.json & sleep 5; kill $!

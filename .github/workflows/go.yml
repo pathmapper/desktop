@@ -34,7 +34,7 @@ jobs:
       run: cd src/github.com/maputnik/desktop/ && make
 
     - name: Test help
-      run: pwd && ls -ll && /home/runner/work/desktop/desktop/src/github.com/maputnik/desktop/bin/linux/maputnik --help
+      run: pwd && ls -ll && ./src/github.com/maputnik/desktop/bin/linux/maputnik --help
    
     - name: Test version
       run: /home/runner/work/desktop/desktop/src/github.com/maputnik/desktop/bin/linux/maputnik --version

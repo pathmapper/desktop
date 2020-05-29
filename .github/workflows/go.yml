@@ -16,10 +16,10 @@ jobs:
       GO111MODULE: off
     steps:
 
-    - name: Set up Go 1.x
+    - name: Set up Go
       uses: actions/setup-go@v2
       with:
-        go-version: ^1.14
+        go-version: ^1.14.x
       id: go
 
     - name: Check out code into the Go module directory
@@ -34,10 +34,10 @@ jobs:
       run: cd src/github.com/maputnik/desktop/ && make
 
     - name: Test help
-      run: pwd && ls -ll && ./src/github.com/maputnik/desktop/bin/linux/maputnik --help
+      run: ./src/github.com/maputnik/desktop/bin/linux/maputnik --help
    
     - name: Test version
-      run: /home/runner/work/desktop/desktop/src/github.com/maputnik/desktop/bin/linux/maputnik --version
+      run: ./src/github.com/maputnik/desktop/bin/linux/maputnik --version
       
     - name: Test watch
-      run: /home/runner/work/desktop/desktop/src/github.com/maputnik/desktop/bin/linux/maputnik --watch --file style.json & sleep 5; kill $!
+      run: ./src/github.com/maputnik/desktop/bin/linux/maputnik --watch --file style.json & sleep 5; kill $!

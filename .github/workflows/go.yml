@@ -23,7 +23,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Get style
-      run: pwd && cd /opt/hostedtoolcache/go/1.14.3/x64/src/github.com/maputnik/desktop/ && wget https://maputnik.github.io/osm-liberty/style.json
+      run:  ls -ll && pwd && wget https://maputnik.github.io/osm-liberty/style.json
 
     - name: Build
       run: make

@@ -42,8 +42,20 @@ jobs:
     - name: Test --watch
       run: ./src/github.com/maputnik/desktop/bin/linux/maputnik --watch --file style.json & sleep 5; kill $!
 
-    - name: artifacts/cli
+    - name: artifacts/linux
       uses: actions/upload-artifact@v1
       with:
         name: maputnik-linux
         path: ./src/github.com/maputnik/desktop/bin/linux/
+
+    - name: artifacts/darwin
+      uses: actions/upload-artifact@v1
+      with:
+        name: maputnik-darwin
+        path: ./src/github.com/maputnik/desktop/bin/darwin/
+        
+    - name: artifacts/windows
+      uses: actions/upload-artifact@v1
+      with:
+        name: maputnik-windows
+        path: ./src/github.com/maputnik/desktop/bin/windows/

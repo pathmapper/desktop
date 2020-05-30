@@ -25,6 +25,7 @@ jobs:
     - name: Check out code into the Go module directory
       uses: actions/checkout@v2
       with:
+        with: maputnik/desktop
         path: ./src/github.com/maputnik/desktop/
 
     - name: Get style

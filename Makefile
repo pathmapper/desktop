@@ -23,7 +23,7 @@ editor/create_folder: dependencies
 	mkdir -p editor
 
 editor/pull_release: editor/create_folder
-	test -d /home/runner/work/editor/editor/build/build && echo "exist" || (echo "does not exist" && cd editor && rm -rf public && curl -L https://github.com/maputnik/editor/releases/download/$(EDITOR_VERSION)/public.zip --output public.zip && unzip public.zip && rm public.zip)
+	test -d /home/runner/work/editor/editor/build/build && echo "exist" || echo "does not exist" && cd editor && rm -rf public && curl -L https://github.com/maputnik/editor/releases/download/$(EDITOR_VERSION)/public.zip --output public.zip && unzip public.zip && rm public.zip
 
 bindata_assetfs.go: editor/pull_release
 	go-bindata-assetfs --prefix "editor/" editor/public/...
@@ -31,4 +31,3 @@ bindata_assetfs.go: editor/pull_release
 .PHONY: clean
 clean:
 	rm -rf editor/public && rm -f bindata.go && rm -f bindata_assetfs.go && rm -rf bin
-

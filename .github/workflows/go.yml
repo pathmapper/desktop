@@ -2,9 +2,9 @@ name: go
 
 on:
   push:
-    branches: [ gh-actions ]
+    branches: [ gh_actions_editor ]
   pull_request:
-    branches: [ gh-actions ]
+    branches: [ gh_actions_editor ]
 
 jobs:
 

@@ -31,3 +31,4 @@ bindata_assetfs.go: editor/pull_release
 .PHONY: clean
 clean:
 	rm -rf editor/public && rm -f bindata.go && rm -f bindata_assetfs.go && rm -rf bin
+
